@@ -1,10 +1,24 @@
-// import files and packages up here
+    // import files and packages up here
+// The web framework used to build server
+const express = require('express');
+// Logs every request in the terminal
+const morgan = require('morgan');
+// Loads your top spots data so you can send it to /data
+const data = require('./data.json');
 
+    // create your express server below
+var app = express();
 
-// create your express server below
-var app;
+    // add your routes and middleware below
+// Tell app to use morgan to log requests
+app.use(morgan('dev'));
+// Lets server load front end file
+app.use(express.static(__dirname));
+//When someone visits the server it will respond with the data from data.json, 200 status code means ok
+app.get('/data', (req, res) => {
+    res.status(200).json(data);
+});
 
-// add your routes and middleware below
-
-// finally export the express application
+    // finally export the express application
+// Allows test runner and index.js to import Express app
 module.exports = app;
