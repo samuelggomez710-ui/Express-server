@@ -21,6 +21,9 @@ app.get('/', (req, res) => {
 //When someone visits the server it will respond with the data from data.json, 200 status code means ok
 app.get('/data', (req, res) => {
     res.status(200).json(data);
+    res.setHeader('Content-Type', 'text/plain');
+    // Send back the response body and end the response
+    res.end("It's working");
 });
 
     // finally export the express application
