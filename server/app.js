@@ -4,7 +4,7 @@ const express = require('express');
 // Logs every request in the terminal
 const morgan = require('morgan');
 // Loads your top spots data so you can send it to /data
-const data = require('.//data.json');
+const data = require('./data.json');
 
     // create your express server below
 var app = express();
