@@ -7,7 +7,7 @@ const morgan = require('morgan');
 const data = require('./data.json');
 
     // create your express server below
-var app = express();
+const app = express();
 
     // add your routes and middleware below
 // Tell app to use morgan to log requests
