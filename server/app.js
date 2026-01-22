@@ -13,7 +13,11 @@ const app = express();
 // Tell app to use morgan to log requests
 app.use(morgan('dev'));
 // Lets server load front end file
-app.use(express.static(__dirname));
+app.use(express.static(`${__dirname}/..`));
+// Serve index.html on root path
+app.get('/', (req, res) => {
+    res.sendFile(`${__dirname}/../index.html`);
+});
 //When someone visits the server it will respond with the data from data.json, 200 status code means ok
 app.get('/data', (req, res) => {
     res.status(200).json(data);
